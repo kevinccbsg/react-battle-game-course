@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const Prompt = (props) => {
   return (
@@ -23,5 +23,12 @@ const Prompt = (props) => {
     </div>
   );
 }
+
+Prompt.propTypes = {
+  header: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  submitUser: PropTypes.func.isRequired,
+  updateValue: PropTypes.func.isRequired,
+};
 
 export default Prompt;
