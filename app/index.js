@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 const USER_DATA = {
   name: 'Kevin',
-  username: 'ccbsg',
+  username: 'kevinccbsg',
   image: 'https://avatars3.githubusercontent.com/u/12685053?v=3&s=460'
 };
 
@@ -17,12 +17,36 @@ const ProfilePic = (props) => {
   );
 };
 
+const linkStyle = {
+  color: 'blue',
+  cursor: 'pointer'
+};
+
+class Link extends Component {
+  constructor() {
+    super();
+    this.changeURL = this.changeURL.bind(this);
+  }
+
+  changeURL() {
+    window.location.replace(this.props.href);
+  }
+
+  render () {
+    return (
+      <span style={linkStyle} onClick={this.changeURL}>
+        {this.props.children}
+      </span>
+    );
+  }
+};
+
 const ProfileLink = (props) => {
   return (
     <div>
-      <a href={`https://www.github.com/${props.username}`}>
+      <Link href={`https://www.github.com/${props.username}`}>
         {props.username}
-      </a>
+      </Link>
     </div>
   );
 };
